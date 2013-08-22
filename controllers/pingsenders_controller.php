@@ -5,7 +5,7 @@
  *
  * @link			http://mani-lab.com   mani-lab
  * @version			2.0.0
- * @lastmodified	2012-05-01
+ * @lastmodified	2013-08-22
  */
 
 /********************************************
@@ -30,7 +30,7 @@ class PingsendersController extends PluginsController {
 	//　設定
 	/*-----------------------------------------*/
 	var $name = 'Pingsenders';
-	var $components = array('BcAuth','Cookie','BcAuthConfigure','RequestHandler');
+	var $components = array('BcAuth','Cookie','BcAuthConfigure');
 	var $pageTitle = 'Ping送信';
 	var $uses = array('Plugin','Pingsender.Pingsender','Pingsender.PingsenderRes','Blog.BlogContent');
 	var $helpers = array('BcText','BcTime','BcForm');
@@ -114,7 +114,7 @@ class PingsendersController extends PluginsController {
 				//ログに残すメッセージ
 				$this->Pingsender->saveDbLog('Ping送信設定を更新しました。');
 				//画面遷移
-				$this->redirect('/admin/pingsender/pingsenders/index');
+				$this->redirect(array('action'=>'admin_index'));
 			
 			//保存に失敗した場合の処理
 			}else {
